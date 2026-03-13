@@ -12,9 +12,10 @@ type FormData = {
 };
 
 const bonusOptions = [
-  { id: 'bonus1', title: 'Consultoria VIP', desc: '30 min de mentoria individual' },
-  { id: 'bonus2', title: 'E-book Estratégico', desc: 'Acesso imediato ao PDF' },
-  { id: 'bonus3', title: 'Cupom 20%', desc: 'Desconto em sua próxima compra' }
+  { id: 'bonus1', title: 'Brinde', desc: 'Brinde' },
+  { id: 'bonus2', title: 'Não for dessa vez', desc: 'Não for dessa vez' },
+  { id: 'bonus3', title: '30% Off', desc: '30% Off' },
+  { id: 'bonus4', title: '18% Off', desc: '18% Off' },
 ]
 
 export default function MultiStepForm() {
