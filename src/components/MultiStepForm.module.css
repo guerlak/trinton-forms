@@ -4,6 +4,19 @@
   padding: 40px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 100px;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(223, 32, 38, 0.4));
 }
 
 .title {

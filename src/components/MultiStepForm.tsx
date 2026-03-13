@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './MultiStepForm.module.css';
 import { supabase } from '@/lib/supabase';
+import Image from 'next/image';
 
 type FormData = {
   name: string;
@@ -88,6 +89,11 @@ export default function MultiStepForm() {
         ]);
 
       if (error) {
+        // Código 23505 é o erro de 'unique constraint' no PostgreSQL
+        if (error.code === '23505') {
+          alert('Este e-mail já está cadastrado! Você já garantiu seu bônus.');
+          return;
+        }
         console.error('Erro detalhado do Supabase:', error);
         throw error;
       }
@@ -104,6 +110,16 @@ export default function MultiStepForm() {
 
   return (
     <div className={`${styles.formContainer} glass`}>
+      <div className={styles.logoContainer}>
+        <Image 
+          src="/triton-red-icon.png" 
+          alt="Triton Logo" 
+          width={80} 
+          height={80} 
+          className={styles.logo}
+        />
+      </div>
+
       {step === 1 && (
         <div className="animate-in">
           <h1 className={styles.title}>Bem-vindo</h1>
