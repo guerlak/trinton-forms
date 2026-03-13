@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 Triton Form - Captura de Leads Premium
 
-## Getting Started
+<div align="center">
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/NextJS-Dark.svg" height="50" alt="nextjs logo"  />
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Supabase-Dark.svg" height="50" alt="supabase logo"  />
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/TypeScript.svg" height="50" alt="typescript logo"  />
+</div>
 
-First, run the development server:
+---
 
+## ✨ Visão Geral
+
+O **Triton Form** é uma aplicação de alta conversão projetada para capturar leads de forma elegante e eficiente. Utilizando uma interface **Multi-Step** com estética **Glassmorphism**, o app guia o usuário através de uma jornada fluida até a seleção de bônus exclusivos.
+
+## 🚀 Tecnologias
+
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Linguagem:** TypeScript
+- **Banco de Dados:** [Supabase](https://supabase.com/)
+- **Estilização:** Vanilla CSS (Modern CSS Variables)
+- **Segurança:** Row Level Security (RLS)
+
+## 🛠️ Funcionalidades
+
+- [x] **Interface Multi-etapa:** Reduz a carga cognitiva e aumenta a conversão.
+- [x] **Design Premium:** Tema dark com gradientes vibrantes em `#df2026`.
+- [x] **Máscara de Telefone:** Formatação automática em tempo real `(00) 00000-0000`.
+- [x] **Validação de E-mail:** Garante a integridade dos leads capturados.
+- [x] **Seleção de Bônus:** Interface visual para escolha de recompensas.
+- [x] **Persistência Segura:** Envio direto para o Supabase com proteção RLS.
+
+## ⚙️ Configuração
+
+### 1. Clonar o repositório
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/SEU_USUARIO/triton-form.git
+cd triton-form
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instalar dependências
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Variáveis de Ambientes
+Crie um arquivo `.env.local` na raiz do projeto:
+```env
+NEXT_PUBLIC_SUPABASE_URL=seu_url_do_supabase
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=sua_chave_anon_publica
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Setup do Banco de Dados (Supabase)
+Execute o SQL abaixo no seu painel do Supabase para criar a tabela e as políticas de segurança:
 
-## Learn More
+```sql
+create table leads (
+  id uuid default gen_random_uuid() primary key,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  full_name text,
+  email text,
+  phone text,
+  bonus_selected text
+);
 
-To learn more about Next.js, take a look at the following resources:
+-- Habilitar Segurança
+alter table leads enable row level security;
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-- Política de Inserção Pública
+create policy "Permitir inserção pública" 
+on leads for insert to anon with check (true);
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Executar localmente
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+## 🎨 Design System
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Elemento | Valor |
+| :--- | :--- |
+| **Cor Primária** | `#df2026` (Vermelho Triton) |
+| **Fundo** | `#050505` |
+| **Tipografia** | Inter (Google Fonts) |
+| **Efeito** | Glassmorphism (Backdrop Blur 12px) |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+<div align="center">
+  <p>Desenvolvido com ❤️ para Triton Lead Systems</p>
+</div>
