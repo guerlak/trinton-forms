@@ -1,0 +1,165 @@
+.formContainer {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.stepIndicator {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  width: 30px;
+  background: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding-left: 4px;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.1);
+}
+
+.button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent-gradient);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.bonusGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.bonusCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bonusCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bonusCardSelected {
+  border-color: var(--primary-color);
+  background: rgba(0, 210, 255, 0.05);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+}
+
+.bonusTitle {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.bonusDesc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+  font-size: 2.5rem;
+  animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.75rem;
+  margin-top: 5px;
+}

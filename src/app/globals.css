@@ -1,27 +1,14 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-color: #050505;
+  --card-bg: rgba(20, 20, 20, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --primary-color: #df2026;
+  --secondary-color: #a3171b;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-gradient: linear-gradient(135deg, #df2026 0%, #a3171b 100%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -30,13 +17,33 @@ body {
   margin: 0;
 }
 
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(58, 123, 213, 0.05) 0%, transparent 40%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+input, select, button {
+  font-family: inherit;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
 }
